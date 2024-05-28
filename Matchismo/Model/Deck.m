@@ -15,7 +15,9 @@
 
 - (NSMutableArray *)cards
 {
-    if (!_cards) _cards = [NSMutableArray<Card *> new];
+    if (_cards == nil) {
+        _cards = [NSMutableArray<Card *> new];
+    }
     return _cards;
 }
 

@@ -18,7 +18,9 @@
 
 - (PlayingCardDeck *)playingCardsDeck
 {
-    if (!_playingCardsDeck) _playingCardsDeck =  [PlayingCardDeck new];
+    if (_playingCardsDeck == nil) {
+        _playingCardsDeck =  [PlayingCardDeck new];
+    }
     return _playingCardsDeck;
 }
 
@@ -32,7 +34,8 @@
 - (IBAction)touchCardButton:(UIButton *)sender
 {
     NSString *label = [self.playingCardsDeck drawRandomCard].contents;
-    if ([sender.currentTitle length] || ![label length]) {
+
+    if (sender.currentTitle.length || !label.length) {
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
