@@ -31,19 +31,19 @@
     NSLog(@"flipCount = %lu", self.flipCount);
 }
 
-- (IBAction)touchCardButton:(UIButton *)sender
+- (IBAction)touchCardButton:(UIButton *)button
 {
     NSString *label = [self.playingCardsDeck drawRandomCard].contents;
 
-    if (sender.currentTitle.length || !label.length) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
+    if (button.currentTitle.length != 0 || label.length == 0) {
+        [button setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
-        [sender setTitle:@"" forState:UIControlStateNormal];
+        [button setTitle:@"" forState:UIControlStateNormal];
     }
     else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
+        [button setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                           forState:UIControlStateNormal];
-        [sender setTitle:label forState:UIControlStateNormal];
+        [button setTitle:label forState:UIControlStateNormal];
     }
 
     self.flipCount += 1;

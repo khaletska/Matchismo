@@ -13,7 +13,7 @@
 
 @implementation Deck
 
-- (NSMutableArray *)cards
+- (NSMutableArray<Card *> *)cards
 {
     if (_cards == nil) {
         _cards = [NSMutableArray<Card *> new];
@@ -40,9 +40,8 @@
 {
     Card *randomCard = nil;
 
-    if ([self.cards count])
-    {
-        unsigned index = arc4random() % [self.cards count];
+    if (self.cards.count != 0) {
+        NSUInteger index = arc4random() % self.cards.count;
         randomCard = self.cards[index];
         [self.cards removeObjectAtIndex:index];
     }
