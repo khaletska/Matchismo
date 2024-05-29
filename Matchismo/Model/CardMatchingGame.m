@@ -56,7 +56,7 @@ static const int COST_TO_CHOOSE = 1;
             // match against other card
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
-                    int matchScore = [card match:@[otherCard]];
+                    NSInteger matchScore = [card match:@[otherCard]];
                     if (matchScore) {
                         self.score += matchScore * MATCH_BONUS;
                         card.matched = YES;
