@@ -256,11 +256,19 @@
                                     <action selector="touchCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4P-OH-pCj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2N-fK-5T9">
+                                <rect key="frame" x="56" y="797" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.00090080148289999995" green="0.34207876929999997" blue="0.080272292240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="scoreLabel" destination="e2N-fK-5T9" id="WcI-9I-rDl"/>
                         <outletCollection property="cardButtons" destination="kzV-Fn-vqW" id="aAd-oJ-JAi"/>
                         <outletCollection property="cardButtons" destination="LAm-Wp-xMW" id="AC9-ep-wms"/>
                         <outletCollection property="cardButtons" destination="brf-aQ-qRZ" id="QBK-1v-QMM"/>
