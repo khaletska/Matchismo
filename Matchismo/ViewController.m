@@ -33,9 +33,10 @@
 
 - (IBAction)touchCardButton:(UIButton *)button
 {
-    NSString *label = [self.playingCardsDeck drawRandomCard].contents;
+    NSString *contents = [self.playingCardsDeck drawRandomCard].contents;
+    BOOL noCardsLeft = contents.length == 0;
 
-    if (button.currentTitle.length != 0 || label.length == 0) {
+    if (button.currentTitle.length != 0 || noCardsLeft) {
         [button setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
         [button setTitle:@"" forState:UIControlStateNormal];
@@ -43,7 +44,7 @@
     else {
         [button setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                           forState:UIControlStateNormal];
-        [button setTitle:label forState:UIControlStateNormal];
+        [button setTitle:contents forState:UIControlStateNormal];
     }
 
     self.flipCount += 1;
