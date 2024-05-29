@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04081C672C05F2B000FC4547 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 04081C662C05F2B000FC4547 /* PlayingCardDeck.m */; };
+		04081C6A2C07069C00FC4547 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04081C692C07069C00FC4547 /* CardMatchingGame.m */; };
 		04AA77B02C04C4EA00D02ED8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AA77AF2C04C4EA00D02ED8 /* AppDelegate.m */; };
 		04AA77B32C04C4EA00D02ED8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AA77B22C04C4EA00D02ED8 /* SceneDelegate.m */; };
 		04AA77B62C04C4EA00D02ED8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AA77B52C04C4EA00D02ED8 /* ViewController.m */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		04081C652C05F2B000FC4547 /* PlayingCardDeck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		04081C662C05F2B000FC4547 /* PlayingCardDeck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		04081C682C07069C00FC4547 /* CardMatchingGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
+		04081C692C07069C00FC4547 /* CardMatchingGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
 		04AA77AB2C04C4EA00D02ED8 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AA77AE2C04C4EA00D02ED8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04AA77AF2C04C4EA00D02ED8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 			children = (
 				04AA77B42C04C4EA00D02ED8 /* ViewController.h */,
 				04AA77B52C04C4EA00D02ED8 /* ViewController.m */,
+				04AA77B72C04C4EA00D02ED8 /* Main.storyboard */,
 				04AA77CE2C05D6D300D02ED8 /* Model */,
 				04AA77C72C04C68B00D02ED8 /* SupportingFiles */,
 				04AA77BF2C04C4EB00D02ED8 /* Info.plist */,
@@ -89,7 +93,6 @@
 				04AA77AF2C04C4EA00D02ED8 /* AppDelegate.m */,
 				04AA77B12C04C4EA00D02ED8 /* SceneDelegate.h */,
 				04AA77B22C04C4EA00D02ED8 /* SceneDelegate.m */,
-				04AA77B72C04C4EA00D02ED8 /* Main.storyboard */,
 				04AA77BA2C04C4EB00D02ED8 /* Assets.xcassets */,
 				04AA77BC2C04C4EB00D02ED8 /* LaunchScreen.storyboard */,
 				04AA77C02C04C4EB00D02ED8 /* main.m */,
@@ -108,6 +111,8 @@
 				04AA77D62C05EB0C00D02ED8 /* PlayingCard.m */,
 				04081C652C05F2B000FC4547 /* PlayingCardDeck.h */,
 				04081C662C05F2B000FC4547 /* PlayingCardDeck.m */,
+				04081C682C07069C00FC4547 /* CardMatchingGame.h */,
+				04081C692C07069C00FC4547 /* CardMatchingGame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				04AA77D12C05D70400D02ED8 /* Card.m in Sources */,
 				04081C672C05F2B000FC4547 /* PlayingCardDeck.m in Sources */,
 				04AA77B62C04C4EA00D02ED8 /* ViewController.m in Sources */,
+				04081C6A2C07069C00FC4547 /* CardMatchingGame.m in Sources */,
 				04AA77D72C05EB0C00D02ED8 /* PlayingCard.m in Sources */,
 				04AA77B02C04C4EA00D02ED8 /* AppDelegate.m in Sources */,
 				04AA77C12C04C4EB00D02ED8 /* main.m in Sources */,
