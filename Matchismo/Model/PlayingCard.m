@@ -9,6 +9,23 @@
 
 @implementation PlayingCard
 
+- (NSUInteger)match:(NSArray<Card *> *)otherCards
+{
+    NSUInteger score = 0;
+
+    if (otherCards.count == 1) {
+        PlayingCard *otherCard = (PlayingCard *)otherCards.firstObject;
+        if([self.suit isEqualToString:otherCard.suit]) {
+            score = 1;
+        }
+        else if (self.rank == otherCard.rank) {
+            score = 4;
+        }
+    }
+
+    return score;
+}
+
 - (NSString *)contents
 {
     NSArray<NSString *> *rankStrings = [PlayingCard rankStrings];
@@ -43,7 +60,8 @@
     return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
 }
 
-+ (NSUInteger)maxRank {
++ (NSUInteger)maxRank
+{
     return [self rankStrings].count - 1;
 }
 
