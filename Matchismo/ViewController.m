@@ -10,7 +10,7 @@
 #import "CardMatchingGame.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray<UIButton *> *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) CardMatchingGame *game;
@@ -22,7 +22,7 @@
 {
     if (_game == nil)
     {
-        _game = [[CardMatchingGame alloc] initWithCardCounts:[self.cardButtons count] usingDeck:[self createDeck]];
+        _game = [[CardMatchingGame alloc] initWithCardCounts:self.cardButtons.count usingDeck:[self createDeck]];
     }
     return _game;
 }

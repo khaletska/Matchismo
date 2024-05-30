@@ -9,20 +9,24 @@
 
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;
-@property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong) NSMutableArray<Card *> *cards;
 @end
 
 @implementation CardMatchingGame
 
-- (NSMutableArray *)cards
+static const int MISMATCH_PENALTY = 2;
+static const int MATCH_BONUS = 4;
+static const int COST_TO_CHOOSE = 1;
+
+- (NSMutableArray<Card *> *)cards
 {
     if(_cards == nil) {
-        _cards = [NSMutableArray new];
+        _cards = [NSMutableArray<Card *> new];
     }
     return _cards;
 }
 
-- (instancetype)initWithCardCounts:(NSUInteger)count usingDeck:(Deck *)deck 
+- (instancetype)initWithCardCounts:(NSUInteger)count usingDeck:(Deck *)deck
 {
     self = [super init];
 
@@ -41,10 +45,6 @@
 
     return self;
 }
-
-static const int MISMATCH_PENALTY = 2;
-static const int MATCH_BONUS = 4;
-static const int COST_TO_CHOOSE = 1;
 
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
