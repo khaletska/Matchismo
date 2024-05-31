@@ -9,17 +9,45 @@
 
 @implementation PlayingCard
 
-- (NSUInteger)match:(NSArray<Card *> *)otherCards
+- (NSUInteger)match:(NSArray<PlayingCard *> *)otherCards
 {
-    NSUInteger score = 0;
+    NSArray<PlayingCard *> *playingCards = [otherCards arrayByAddingObject:self];
 
-    if (otherCards.count == 1) {
-        PlayingCard *otherCard = (PlayingCard *)otherCards.firstObject;
-        if([self.suit isEqualToString:otherCard.suit]) {
-            score = 1;
+    NSUInteger score = 0;
+    NSUInteger cardsCount = playingCards.count;
+
+    for (int i = 0; i < cardsCount - 1; i += 1) {
+        for (int j = i + 1; j < cardsCount; j += 1) {
+            if ([playingCards[i].suit isEqualToString:playingCards[j].suit]) {
+                score += 1;
+            }
+            if (playingCards[i].rank == playingCards[j].rank) {
+                score += 4;
+            }
         }
-        else if (self.rank == otherCard.rank) {
-            score = 4;
+    }
+
+    if (cardsCount == 3) {
+        if ([playingCards[0].suit isEqualToString:playingCards[1].suit] &&
+            [playingCards[0].suit isEqualToString:playingCards[2].suit]) {
+            score += 3;
+        }
+        if (playingCards[0].rank == playingCards[1].rank &&
+            playingCards[0].rank == playingCards[2].rank) {
+            score += 12;
+        }
+
+    }
+    else if (cardsCount == 4) {
+        if ([playingCards[0].suit isEqualToString:playingCards[1].suit] &&
+            [playingCards[0].suit isEqualToString:playingCards[2].suit] &&
+            [playingCards[0].suit isEqualToString:playingCards[3].suit]) {
+            score += 4;
+        }
+        if (playingCards[0].rank == playingCards[1].rank &&
+            playingCards[0].rank == playingCards[2].rank &&
+            playingCards[0].rank == playingCards[3].rank) {
+            score += 16;
         }
     }
 
@@ -32,7 +60,7 @@
     if (self.rank > [PlayingCard maxRank]) {
         return @"";
     }
-    
+
     return [rankStrings[self.rank] stringByAppendingString:self.suit];
 }
 

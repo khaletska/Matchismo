@@ -14,17 +14,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) CardMatchingGame *game;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIButton *restartButton;
+@property (weak, nonatomic) IBOutlet UILabel *statusOfGameLabel;
 @end
 
 @implementation ViewController
 
-- (CardMatchingGame *)game
+- (void)createNewGame
 {
-    if (_game == nil)
-    {
-        _game = [[CardMatchingGame alloc] initWithCardCounts:self.cardButtons.count usingDeck:[self createDeck]];
-    }
-    return _game;
+    self.game = [[CardMatchingGame alloc] initWithCardCounts:self.cardButtons.count
+                                                   usingDeck:[self createDeck]
+                                                    withMode:self.gameModeSegmentedControl.selectedSegmentIndex];
 }
 
 - (Deck *)createDeck
@@ -34,15 +35,28 @@
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
+    if (![self isGameEnabled]) {
+        [self createNewGame];
+    }
+
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];
+
 }
 
-- (void) updateUI
+- (void)updateUI
 {
-    for (UIButton *cardButton in self.cardButtons)
-    {
+    [self updateCards];
+    [self updateGameModeSegmentedControl];
+    [self updateRestartButton];
+    [self updateScoreLabel];
+    [self updateGameStatusLabel];
+}
+
+- (void)updateCards
+{
+    for (UIButton *cardButton in self.cardButtons) {
         NSUInteger cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
@@ -50,7 +64,31 @@
 
         cardButton.enabled = !card.isMatched;
     }
+}
+
+- (void)updateGameStatusLabel
+{
+    self.statusOfGameLabel.text = self.game.statusOfGame;
+}
+
+- (void)updateGameModeSegmentedControl
+{
+    self.gameModeSegmentedControl.enabled = ![self isGameEnabled];
+}
+
+- (void)updateRestartButton
+{
+    self.restartButton.enabled = [self isGameEnabled];
+}
+
+- (void)updateScoreLabel
+{
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+}
+
+- (BOOL)isGameEnabled
+{
+    return self.game != nil;
 }
 
 - (NSString *)titleForCard:(Card *)card
@@ -61,6 +99,12 @@
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
     return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
+}
+
+- (IBAction)touchRestartButton
+{
+    self.game = nil;
+    [self updateUI];
 }
 
 @end
