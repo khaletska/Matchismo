@@ -9,17 +9,14 @@
 
 @implementation PlayingCard
 
-- (NSUInteger)match:(NSArray<Card *> *)otherCards
+- (NSUInteger)match:(NSArray<PlayingCard *> *)otherCards
 {
-    NSMutableArray<PlayingCard *> *playingCards = [NSMutableArray arrayWithObject: self];
-    for (Card *card in otherCards) {
-        [playingCards addObject:(PlayingCard *)card];
-    }
+    NSArray<PlayingCard *> *playingCards = [otherCards arrayByAddingObject:self];
 
     NSUInteger score = 0;
     NSUInteger cardsCount = playingCards.count;
 
-    for (int i = 0; i < cardsCount; i += 1) {
+    for (int i = 0; i < cardsCount - 1; i += 1) {
         for (int j = i + 1; j < cardsCount; j += 1) {
             if ([playingCards[i].suit isEqualToString:playingCards[j].suit]) {
                 score += 1;

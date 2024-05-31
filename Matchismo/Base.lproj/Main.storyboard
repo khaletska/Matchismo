@@ -420,7 +420,7 @@
                         <outlet property="gameModeSegmentedControl" destination="R8y-Lq-JNB" id="zqi-EC-8mD"/>
                         <outlet property="restartButton" destination="lrl-Bs-Qq6" id="Rpq-FR-FDn"/>
                         <outlet property="scoreLabel" destination="e2N-fK-5T9" id="WcI-9I-rDl"/>
-                        <outlet property="userActionsLabel" destination="LRb-62-BkO" id="xH4-cu-o1r"/>
+                        <outlet property="statusOfGameLabel" destination="LRb-62-BkO" id="xH4-cu-o1r"/>
                         <outletCollection property="cardButtons" destination="kzV-Fn-vqW" id="aAd-oJ-JAi"/>
                         <outletCollection property="cardButtons" destination="LAm-Wp-xMW" id="AC9-ep-wms"/>
                         <outletCollection property="cardButtons" destination="brf-aQ-qRZ" id="QBK-1v-QMM"/>
